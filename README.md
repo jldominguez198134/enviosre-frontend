@@ -1,4 +1,14 @@
-# Enviosre
+# EnviosRE
+
+Proyecto frontend Angular IFP
+
+## Integrantes
+- Jose Luis Domínguez
+- Bentorey Leal Mesa
+- Miguel José Russo Ortega
+- Rafael Monroig Vives
+
+## Instalación del proyecto
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
 
