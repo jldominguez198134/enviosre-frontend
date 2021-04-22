@@ -1,0 +1,23 @@
+header *{
+    color : inherit;
+    text-decoration : none;
+    list-style : none;
+}
+
+header {
+    .logo {
+        img {
+            width: 100px;
+        }
+    }
+    .menu {
+        li {
+            padding: 0 20px;
+        }
+    }
+    .right-bar {
+        a:first-child {
+            margin-right: 10px;
+        }
+    }
+}

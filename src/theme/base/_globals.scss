@@ -1,0 +1,51 @@
+* {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5{
+    font-family: 'Open Sans', sans-serif;
+	color: #1b3a74;
+}
+
+h1,.h1{
+	font-size: 2.6rem;
+}
+
+h2,.h2{
+	font-size: 2.2rem;
+}
+
+img {
+	max-width: 100%;
+}
+
+.text-right{
+	text-align: right;
+}
+
+.text-left{
+	text-align: left;
+}
+
+.py-2{
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.d-inline {
+	display: inline;
+}
+
+.mb-2 {
+	margin-bottom: 2rem !important;
+}
+.mb-3 {
+	margin-bottom: 3rem !important;
+}
+
+.pb-0{
+	padding-bottom: 0;
+}

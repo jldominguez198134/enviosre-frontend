@@ -1,0 +1,42 @@
+@import '../abstract/variables';
+
+/*
+
+COLORES A USAR : 
+--azul: #062D75;
+--azul2:#1B3A74;
+--gris: #707070;
+--secundario: #FFCE00;
+--blanco: #FFF;
+--negro: #000;
+--testinomios:#F5F7FA;
+--fuentePrincipal: 'Roboto', sans-serif;
+*/
+
+/* Background colors */
+.bg-primary {
+    background-color: $primary;
+}
+.bg-secondary-primary {
+	background-color: $secondary_primary;
+}
+.bg-secondary {
+	background-color: $secondary;
+}
+
+/* Text colors */
+.text-primary {
+    color: $primary;
+}
+.text-secondary-primary {
+	color: $secondary_primary;
+}
+.text-secondary {
+	color: $secondary;
+}
+.text-white {
+    color: $white;
+}
+.text-black {
+    color: $black;
+}

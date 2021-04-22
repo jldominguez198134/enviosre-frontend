@@ -1,0 +1,55 @@
+@import '../abstract/variables.scss';
+
+.btn{
+  font-size: 18px;
+  font-weight: 600;
+  height: 40px;
+  width: 180px;
+  border-radius: 20px !important;
+  font-weight: bold;
+  border: none;
+  transition: background-color 200ms ease-out;
+  &:focus{
+    outline: none;
+  }
+  &:active{
+
+  }
+  &:disabled{
+    background: rgb(161, 161, 161) !important;
+    box-shadow: none;
+    color: white;
+  }
+}
+
+.btn-on{
+  border: solid 1px black;
+  color: black;
+  background-color: $white;
+}
+
+.btn-off{
+  background: $primary;
+  color: black;
+}
+.btn-secondary {
+  background: $secondary;
+  color: $white !important;
+}
+.btn-off:hover{
+  color: white;
+}
+
+.btn-neutral {
+  border: solid 1px $white !important;
+}
+
+.btn-big {
+  font-size: 20px;
+  height: 48px;
+  border-radius: 24px;
+  width: 208px;
+  line-height: 34px;
+}
+
+
