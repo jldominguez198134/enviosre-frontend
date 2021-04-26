@@ -9,6 +9,15 @@ const routes: Routes = [
         m => m.HomeModule
       )
   },
+
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/login/login.module').then(
+        m => m.LoginModule
+      )
+  },
+
   {
     path: '**',
     pathMatch: 'full',
@@ -24,3 +33,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
