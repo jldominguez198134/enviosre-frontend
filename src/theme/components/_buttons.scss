@@ -36,6 +36,12 @@
   background: $secondary;
   color: $white !important;
 }
+
+.btn-secondarymain {
+  background: $white !important;
+  color: $primary !important ;
+}
+
 .btn-off:hover{
   color: white;
 }
