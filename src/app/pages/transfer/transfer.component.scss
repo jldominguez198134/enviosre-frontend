@@ -1,0 +1,22 @@
+img.custom-banner-img {
+    max-width: 372px;
+}
+
+.rounded-re{
+    border-radius: 0.5rem;
+
+}
+
+.transferOk {
+    padding: 25px;
+    &::before {
+        content: 'L';
+        color: #55EB37;
+        font-size: 100px;
+        font-weight: bolder;
+        transform: scale(-1, 1) rotate(-45deg);
+        // position: absolute;
+        // left: -30px;
+        // top: -5px;
+    }
+}

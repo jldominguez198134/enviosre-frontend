@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { LoginService } from '../../services/login/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,16 +8,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  title: string;
 
-  constructor() { }
+  title: string;
+  user: Subscription;
+  isUserLogin = false;
+  userMenu = false;
+
+  constructor(
+    private login: LoginService
+  ) { }
 
   ngOnInit(): void {
     this.title = 'Este es el título';
+    this.user = this.login.subUserData.subscribe(
+      user => {
+        if (this.user) {
+          console.log('USER', this.user);
+          this.isUserLogin = true;
+        }
+      }
+    );
   }
 
-  hazAlgo() {
-    alert('hola');
+  openUserMenu() {
+    this.userMenu = !this.userMenu;
   }
 
 }

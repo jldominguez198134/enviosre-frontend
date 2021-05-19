@@ -1,0 +1,102 @@
+<div class="page __popTarificador">
+    <div class="container-fluid bg-secondary-primary text-white">
+        <div class="container pt-0 pb-0">
+            <div class="">
+                <div class="container pb-0">
+                    <div class="row align-items-center flex-nowrap">
+                        <div class="">
+                            <h1 class="mb-2 text-white">Cambiar titulo aqui</h1>
+                            <p class="mb-3">Enviar dinero a tus familiares es fácil. Registrate, agrega a tus familiares y envía tus remesas de manera mas fácil.</p>
+                            <a routerLink="/realizar-transferencia" class="btn btn-secondary">Enviar dinero ahora</a>
+                        </div>
+                        <div class="d-flex justify-content-end w-100">
+                            <img class="custom-banner-img" src="/assets/images/001.png" alt="Banner hero">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+    <div class="container text-center login-container-form my-5 p-5">
+        <div class="row">
+            <div class="col-6 offset-md-3">
+                <main class="form-signin">
+                    <!-- <form action="/controllers/insertar.php"> -->
+                    <form [formGroup]="signupForm" (submit)="onSubmit()">
+            
+                        <h1 class="h3 mb-3 fw-normal">Create tu cuenta</h1>
+            
+                        <div class="form-group mb-2 ">
+                            <input formControlName="nombre" type="text" name="nombre" id="inputName" class="form-control text-center rounded-re" placeholder="Nombre" autofocus>
+                            <div *ngIf="signupForm.controls['nombre'].invalid && (signupForm.controls['nombre'].dirty || signupForm.controls['nombre'].touched)">
+                                <p class="errorText" *ngIf="signupForm.controls['nombre'].errors.required">
+                                    Introduce un nombre
+                                </p>
+                            </div>
+                        </div>
+    
+                        <div class="form-group mb-2 mt-3">
+                            <input formControlName="apellidos" type="text" name="apellidos" id="inputSurename" class="form-control text-center rounded-re" placeholder="Apellidos">
+                            <div *ngIf="signupForm.controls['apellidos'].invalid && (signupForm.controls['apellidos'].dirty || signupForm.controls['apellidos'].touched)">
+                                <p class="errorText" *ngIf="signupForm.controls['apellidos'].errors.required">
+                                    Introduce almenos un apellido
+                                </p>
+                            </div>
+                        </div>
+    
+                        <div class="form-group mb-2 mt-3">
+                            <input formControlName="email" type="email" name="email" id="inputEmail" class="form-control text-center rounded-re" placeholder="Email">
+                            <div *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)">
+                                <p class="errorText" *ngIf="signupForm.controls['email'].errors.required">
+                                    Introduce un email
+                                </p>
+                                <p class="errorText" *ngIf="signupForm.controls['email'].errors.pattern">
+                                    El email no es Válido
+                                </p>
+                            </div>
+                        </div>
+    
+                        <div class="form-group mb-2 mt-3">     
+                            <input formControlName="telefono" type="text" name="telefono" id="inputPhone" class="form-control text-center rounded-re" placeholder="Teléfono móvil">
+                            <div *ngIf="signupForm.controls['telefono'].invalid && (signupForm.controls['telefono'].dirty || signupForm.controls['telefono'].touched)">
+                                <p class="errorText" *ngIf="signupForm.controls['telefono'].errors.required">
+                                    Introduce un número de teléfono
+                                </p>
+                                <p class="errorText" *ngIf="signupForm.controls['telefono'].errors.pattern">
+                                    El teléfono no es válido
+                                </p>
+                            </div>
+                        </div>
+    
+                        <!-- <div class="form-group mb-2 mt-3">     
+                            <input formControlName="bankAccount" type="text" name="bankAccount" id="inputAccount" class="form-control text-center rounded-re" placeholder="Introduce tu cuenta bancaria (opcional)">
+                        </div> -->
+    
+                        <div class="form-group mb-2 mt-3">     
+                            <input formControlName="pwd" type="password" name="pwd" id="inputPassword" class="form-control text-center rounded-re" placeholder="Contraseña">
+                            <div *ngIf="signupForm.controls['pwd'].invalid && (signupForm.controls['pwd'].dirty || signupForm.controls['pwd'].touched)">
+                                <p class="errorText" *ngIf="signupForm.controls['pwd'].errors.required">
+                                    Introduce una contraseña
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mb-2 mt-3">     
+                            <input formControlName="pwd_repeat" type="password" name="pwd_repeat" id="inputRepeatPassword" class="form-control text-center rounded-re" placeholder="Repetir contraseña">
+                            <p class="errorText" *ngIf="signupForm.hasError('notSame')">
+                                Las contraseñas no coinciden
+                            </p>
+                        </div>
+        
+                        <div class="form-group">
+                    
+                            <button class="btn my-3 btn-secondary" type="submit">Crear cuenta</button>
+                
+                        </div>
+                    </form>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>

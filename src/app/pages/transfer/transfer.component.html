@@ -1,0 +1,106 @@
+<div class="page __popTarificador">
+    <div class="container-fluid bg-secondary-primary text-white">
+        <div class="container pt-0 pb-0">
+            <div class="">
+                <div class="container pb-0">
+                    <div class="row align-items-center flex-nowrap">
+                        <div class="">
+                            <h1 class="mb-2 text-white">Cambiar titulo aqui</h1>
+                            <p class="mb-3">Enviar dinero a tus familiares es fácil. Registrate, agrega a tus familiares y envía tus remesas de manera mas fácil.</p>
+                            <a routerLink="/realizar-transferencia" class="btn btn-secondary">Enviar dinero ahora</a>
+                        </div>
+                        <div class="d-flex justify-content-end w-100">
+                            <img class="custom-banner-img" src="/assets/images/001.png" alt="Banner hero">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+    <div class="container text-center login-container-form my-5 p-5">
+        <div class="row">
+            <div class="col-6 offset-md-3">
+                <main class="form-signin">
+                    <!-- <form action="/controllers/insertar.php"> -->
+                    <form [formGroup]="transferForm" (submit)="onSubmit()" *ngIf="showForm else divOk">
+            
+                        <h1 class="h3 mb-3 fw-normal">Realiza una transferencia</h1>
+    
+                        <div class="form-group mb-2 mt-3">
+                            <input formControlName="email" type="email" name="email" id="inputEmail" class="form-control text-center rounded-re" placeholder="Email" autofocus>
+                            <div *ngIf="transferForm.controls['email'].invalid && (transferForm.controls['email'].dirty || transferForm.controls['email'].touched)">
+                                <p class="errorText" *ngIf="transferForm.controls['email'].errors.required">
+                                    Introduce un email
+                                </p>
+                                <p class="errorText" *ngIf="transferForm.controls['email'].errors.pattern">
+                                    El email no es Válido
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-2 mt-3">     
+                            <input formControlName="pwd" type="password" name="pwd" id="inputPassword" class="form-control text-center rounded-re" placeholder="Contraseña">
+                            <div *ngIf="transferForm.controls['pwd'].invalid && (transferForm.controls['pwd'].dirty || transferForm.controls['pwd'].touched)">
+                                <p class="errorText" *ngIf="transferForm.controls['pwd'].errors.required">
+                                    Introduce una contraseña
+                                </p>
+                            </div>
+                        </div>
+    
+                        <div class="form-group mb-2 mt-3">
+                            <input formControlName="cuentaBancaria" type="text" name="cuentaBancaria" id="inputSurename" class="form-control text-center rounded-re" placeholder="Cuenta bancaria">
+                            <div *ngIf="transferForm.controls['cuentaBancaria'].invalid && (transferForm.controls['cuentaBancaria'].dirty || transferForm.controls['cuentaBancaria'].touched)">
+                                <p class="errorText" *ngIf="transferForm.controls['cuentaBancaria'].errors.required">
+                                    Introduce tu cuenta bancaria
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-2 mt-3">
+                            <input formControlName="cuentaBancariaDestino" type="text" name="cuentaBancariaDestino" id="inputSurename" class="form-control text-center rounded-re" placeholder="Cuenta bancaria destino">
+                            <div *ngIf="transferForm.controls['cuentaBancariaDestino'].invalid && (transferForm.controls['cuentaBancariaDestino'].dirty || transferForm.controls['cuentaBancariaDestino'].touched)">
+                                <p class="errorText" *ngIf="transferForm.controls['cuentaBancariaDestino'].errors.required">
+                                    Introduce la cuenta bancaria del destinatario
+                                </p>
+                            </div>
+                        </div>
+    
+                        <div class="form-group mb-2 mt-3">     
+                            <input formControlName="telefonoReceptor" type="text" name="telefonoReceptor" id="inputPhone" class="form-control text-center rounded-re" placeholder="Teléfono móvil">
+                            <div *ngIf="transferForm.controls['telefonoReceptor'].invalid && (transferForm.controls['telefonoReceptor'].dirty || transferForm.controls['telefonoReceptor'].touched)">
+                                <p class="errorText" *ngIf="transferForm.controls['telefonoReceptor'].errors.required">
+                                    Introduce un número de teléfono
+                                </p>
+                                <p class="errorText" *ngIf="transferForm.controls['telefonoReceptor'].errors.pattern">
+                                    El teléfono no es válido
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-2 mt-3">
+                            <input formControlName="cantidad" type="number" name="cantidad" id="inputSurename" class="form-control text-center rounded-re" placeholder="100">
+                            <div *ngIf="transferForm.controls['cantidad'].invalid && (transferForm.controls['cantidad'].dirty || transferForm.controls['cantidad'].touched)">
+                                <p class="errorText" *ngIf="transferForm.controls['cantidad'].errors.required">
+                                    Introduce la cantidad a enviar
+                                </p>
+                            </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <p class="errorText" *ngIf="showErrorAccount">Lo sentimos. Parece que la cuenta que intentas introducir no es válida. Serás redirigido a tu perfil.</p>
+                            <button class="btn my-3 btn-secondary" type="submit">Enviar</button>
+                
+                        </div>
+                    </form>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #divOk>
+    <div class="transferOk d-flex flex-column align-items-center justify-content-between">
+        <h3>La transferencia se ha realizado con éxito</h3>
+    </div>
+</ng-template>

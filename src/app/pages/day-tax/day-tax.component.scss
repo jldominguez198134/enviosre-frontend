@@ -1,0 +1,13 @@
+@import '../../../theme/abstract/variables';
+
+.page {
+    .day-tax {
+        margin-top: 100px;
+        button {
+            font-size: 0.8rem;
+        }
+    }
+    .label-text {
+        color: $secondary;
+    }
+}

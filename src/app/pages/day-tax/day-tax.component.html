@@ -1,0 +1,68 @@
+<div class="page __popTarificador">
+    <div class="container-fluid bg-secondary-primary text-white">
+        <div class="container pt-0 pb-0">
+            <div class="">
+                <div class="container pb-0">
+                    <div class="row align-items-center flex-nowrap">
+                        <div class="">
+                            <h1 class="mb-2 text-white">Cambiar titulo aqui</h1>
+                            <p class="mb-3">Enviar dinero a tus familiares es fácil. Registrate, agrega a tus familiares y envía tus remesas de manera mas fácil.</p>
+                            <a routerLink="/realizar-transferencia" class="btn btn-secondary">Enviar dinero ahora</a>
+                        </div>
+                        <div class="d-flex justify-content-end w-100">
+                            <img class="custom-banner-img" src="/assets/images/001.png" alt="Banner hero">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-tax container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 text-center">
+                <h2>
+                    Tasa del día 
+                </h2>
+                <p>
+                    Diariamente el valor de la moneda pueda cambiar y por ello queremos mostrarte con total trasparencia cual es valor actual.
+                </p>
+                <button routerLink="/realizar-transferencia" class="btn-send btn btn-secondary">ENVIAR DINERO AHORA</button>
+            </div>
+        </div>
+    </div>
+      
+    <div class="container text-center login-container-form my-5 p-5">
+        <div class="row">
+            <div class="col-4 offset-md-4">
+                <main class="form-signin">
+                    <!-- <form action="/controllers/insertar.php"> -->
+                    <form [formGroup]="taxForm" (submit)="onSubmit()">
+            
+                        <h1 class="h3 mb-3 fw-normal">Create tu cuenta</h1>
+            
+                        <div class="form-group mb-2 ">
+                            <label for="">
+                                <p class="label-text">Cantidad</p>
+                                <input formControlName="cantidad" type="text" name="cantidad" id="inputCantidad" class="form-control text-center rounded-re" placeholder="Cantidad" autofocus> 
+                            </label>
+                        </div>
+    
+                        <div class="form-group mb-2 mt-3">
+                            <label for="">
+                                <p class="label-text">Resultado</p>
+                                <input formControlName="resultado" type="text" name="resultado" id="inputSurename" class="form-control text-center rounded-re" readonly> 
+                            </label>
+                        </div>
+        
+                        <div class="form-group">
+                    
+                            <button class="btn my-3 btn-secondary" type="submit">Calcular</button>
+                
+                        </div>
+                    </form>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>

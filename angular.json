@@ -70,7 +70,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "enviosre:build"
+            "browserTarget": "enviosre:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

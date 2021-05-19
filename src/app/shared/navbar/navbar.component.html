@@ -1,23 +1,42 @@
 <header class="bg-primary text-white">
     <nav class="container navbar">
         <div class="row justify-content-between align-items-center w-100 flex-nowrap">
-            <a href="/" class="logo"> <img src="/assets/images/logo.svg" alt="LOGO ENVIOS RE"></a>
+            <a routerLink="/" class="logo"> <img src="/assets/images/logo.svg" alt="LOGO ENVIOS RE"></a>
             <div class="left-bar d-flex justify-content-around align-items-center w-100">
                 <ul class="menu d-flex w-100">
-                    <li>
-                        <a href="#Quienes-somos">Quienes Somos</a>
+                    <li routerLinkActive="active">
+                        <a routerLink="/quienes-somos" class="__press">Quienes Somos</a>
                     </li>
-                    <li>
-                        <a href="#tasa">Tasa del dia</a>
+                    <li routerLinkActive="active">
+                        <a routerLink="/tasa-del-dia" class="__press">Tasa del día</a>
                     </li>
-                    <li>
-                        <a href="#ayuda">Ayuda</a>
-                    </li>
+                    <!-- <li routerLinkActive="active">
+                        <a routerLink="/ayuda">Ayuda</a>
+                    </li> -->
                 </ul>
             </div>
-            <div class="right-bar d-flex justify-content-end">
-                <a href="/login" class="btn btn-neutral">Crear cuenta</a>
-                <a href="#"  class="btn btn-secondarymain">Entrar</a>
+            <div class="right-bar d-flex justify-content-end" *ngIf="!isUserLogin">
+                <a routerLink="/crear-cuenta" class="btn btn-neutral __press">Crear cuenta</a>
+                <a routerLink="/login"  class="btn btn-secondarymain __press">Entrar</a>
+            </div>
+            <div class="right-bar" *ngIf="isUserLogin">
+                <button (click)="openUserMenu()" class="btn btn-secondarymain d-flex align-items-center justify-content-center __press">
+                    <img src="../../../assets/icons/ico-user.svg" alt="">
+                    Mi cuenta
+                </button>
+                <div class="user-menu" *ngIf="userMenu">
+                    <ul>
+                        <li>
+                            <a routerLink="/realizar-transferencia" class="__press" (click)="openUserMenu()">Realizar transferencia</a>
+                        </li>
+                        <li>
+                            <a routerLink="/mi-perfil" class="__press" (click)="openUserMenu()">Mi perfil</a>
+                        </li>
+                        <li>
+                            <a routerLink="/logout" class="__press" (click)="openUserMenu()">Logout</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>

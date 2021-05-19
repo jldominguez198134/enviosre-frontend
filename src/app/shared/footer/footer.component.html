@@ -3,31 +3,60 @@
     <div class="row">
         <div class="col-6">
             <h2>¿Quieres contactarnos?</h2>
-            <form action="">
+            <form [formGroup]="contactForm" (submit)="onSubmit()">
 
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <input type="text" placeholder="Nombre y apellido">
+                            <input formControlName="nombre_apellidos" name type="text" placeholder="Nombre y apellido">
+                            <div *ngIf="contactForm.controls['nombre_apellidos'].invalid && (contactForm.controls['nombre_apellidos'].dirty || contactForm.controls['nombre_apellidos'].touched)">
+                                <p class="errorText" *ngIf="contactForm.controls['nombre_apellidos'].errors.required">
+                                    Introduce un nombre
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <input type="email" placeholder="Email">
+                            <input formControlName="email" type="email" placeholder="Email">
+                            <div *ngIf="contactForm.controls['email'].invalid && (contactForm.controls['email'].dirty || contactForm.controls['email'].touched)">
+                                <p class="errorText" *ngIf="contactForm.controls['email'].errors.required">
+                                    Introduce un email
+                                </p>
+                                <p class="errorText" *ngIf="contactForm.controls['email'].errors.pattern">
+                                    El email no es Válido
+                                </p>
+                            </div>
                         </div>
                         <div class="col-6">
-                            <input type="tel" placeholder="Teléfono">
+                            <input formControlName="telefono" name="telefono" type="tel" placeholder="Teléfono">
+                            <div *ngIf="contactForm.controls['telefono'].invalid && (contactForm.controls['telefono'].dirty || contactForm.controls['telefono'].touched)">
+                                <p class="errorText" *ngIf="contactForm.controls['telefono'].errors.required">
+                                    Introduce un número de teléfono
+                                </p>
+                                <p class="errorText" *ngIf="contactForm.controls['telefono'].errors.pattern">
+                                    El teléfono no es válido
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <textarea name="" id="" cols="30" rows="4"></textarea>
+                            <textarea formControlName="comentario" name="comentario" id="" cols="30" rows="4"></textarea>
+                            <div *ngIf="contactForm.controls['comentario'].invalid && (contactForm.controls['comentario'].dirty || contactForm.controls['comentario'].touched)">
+                                <p class="errorText" *ngIf="contactForm.controls['comentario'].errors.required">
+                                    Por favor, dinos algo :(
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="row terms mb-3">
                         <div class="col-12">
                             <label for="terms">
-                                <input type="checkbox" id="terms" class="d-inline">  <p class="d-inline mb-2">
+                                <p class="errorText" *ngIf="submitted && contactForm.controls['check'].errors">
+                                    Deberías leer y aceptar esto...
+                                </p>
+                                <input formControlName="check" type="checkbox" id="terms" class="d-inline">  <p class="d-inline mb-2">
                                     ENTIENDO Y ACEPTO el tratamiento de mis datos tal y como se describe anteriormente y se explica con mayor detalle en la <a href="#">Políticas de privacidad. </a>
                                     <br>
                                 </p>

@@ -1,0 +1,94 @@
+<div class="page __popTarificador">
+    <div class="container-fluid bg-secondary-primary text-white">
+        <div class="container pt-0 pb-0">
+            <div class="">
+                <div class="container pb-0">
+                    <div class="row align-items-center flex-nowrap">
+                        <div class="">
+                            <h1 class="mb-2 text-white">Cambiar titulo aqui</h1>
+                            <p class="mb-3">Enviar dinero a tus familiares es fácil. Registrate, agrega a tus familiares y envía tus remesas de manera mas fácil.</p>
+                            <a routerLink="/realizar-transferencia" class="btn btn-secondary">Enviar dinero ahora</a>
+                        </div>
+                        <div class="d-flex justify-content-end w-100">
+                            <img class="custom-banner-img" src="/assets/images/001.png" alt="Banner hero">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+    <div class="container text-center login-container-form my-5 p-5">
+        <div class="row">
+            <div class="col-6 offset-md-3">
+                <main class="form-signin">
+                    <!-- <form action="/controllers/insertar.php"> -->
+                    <div *ngIf="!showOk else divOk">
+                        <div class="user-data" *ngIf="user && !showForm else divForm">
+                            <div class="form-group mb-2 name">
+                                <h3>Nombre</h3>
+                                <p>{{ user.nombre }}</p>
+                            </div>
+                            <div class="form-group mb-2 name">
+                                <h3>Apellidos</h3>
+                                <p>{{ user.apellidos }}</p>
+                            </div>
+                            <div class="form-group mb-2 name" *ngIf="user.telefono">
+                                <h3>Teléfono</h3>
+                                <p>{{ user.telefono }}</p>
+                            </div>
+                            <div class="form-group mb-2 name" *ngIf="user.cuentaBancaria">
+                                <h3>Cuenta bancaria</h3>
+                                <p>{{ user.cuentaBancaria | account: user.cuentaBancaria }}</p>
+                            </div>
+                            <div class="form-group mb-2 name" *ngIf="!user.cuentaBancaria">
+                                <h3>¡¡No dispones de cuenta bancaria!!</h3>
+                                <button class="btn btn-secondary" (click)="openAccountForm()">Añadir cuenta</button>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #divForm>
+    <form [formGroup]="addAccountForm" (submit)="onSubmit()">
+            
+        <h1 class="h3 mb-3 fw-normal">Añade tu cuenta</h1>
+
+        <div class="form-group mb-2 mt-3">
+            <input formControlName="email" type="email" name="email" id="inputEmail" class="form-control text-center rounded-re" placeholder="Email">
+            <div *ngIf="addAccountForm.controls['email'].invalid && (addAccountForm.controls['email'].dirty || addAccountForm.controls['email'].touched)">
+                <p class="errorText" *ngIf="addAccountForm.controls['email'].errors.required">
+                    Introduce un email
+                </p>
+                <p class="errorText" *ngIf="addAccountForm.controls['email'].errors.pattern">
+                    El email no es Válido
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group mb-2 mt-3">
+            <input formControlName="cuentaBancaria" type="text" name="cuentaBancaria" id="inputSurename" class="form-control text-center rounded-re" placeholder="Cuenta bancaria">
+            <div *ngIf="addAccountForm.controls['cuentaBancaria'].invalid && (addAccountForm.controls['cuentaBancaria'].dirty || addAccountForm.controls['cuentaBancaria'].touched)">
+                <p class="errorText" *ngIf="addAccountForm.controls['cuentaBancaria'].errors.required">
+                    Introduce una cuenta bancaria
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+    
+            <button class="btn my-3 btn-secondary" type="submit">Crear cuenta</button>
+
+        </div>
+    </form>
+</ng-template>
+
+<ng-template #divOk>
+    <div class="transferOk d-flex flex-column align-items-center justify-content-between">
+        <h3>Has añadido la cuenta bancaria con éxito</h3>
+    </div>
+</ng-template>
